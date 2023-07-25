@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "@joaogabrielf/eslint-config"
+  ],
+  "rules": {
+    "no-useless-constructor": "off"
+  }
 }

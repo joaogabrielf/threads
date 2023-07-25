@@ -1,0 +1,62 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1690050230705,
+      "tag": "0000_condemned_war_machine",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1690057821321,
+      "tag": "0001_brave_texas_twister",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1690058347212,
+      "tag": "0002_many_unus",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1690149194425,
+      "tag": "0003_strange_skullbuster",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1690149548081,
+      "tag": "0004_unique_sentinel",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1690151771103,
+      "tag": "0005_conscious_thaddeus_ross",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1690226068356,
+      "tag": "0006_glorious_rumiko_fujikawa",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1690226257686,
+      "tag": "0007_hard_impossible_man",
+      "breakpoints": true
+    }
+  ]
+}

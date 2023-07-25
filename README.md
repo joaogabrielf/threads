@@ -1,4 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# In Developement
+## Use Cases
+
+FRONT BACK
+[ ]   [X] User can create a new thread
+[ ]   [ ] User can view a thread card
+[ ]   [ ] User can like a thread
+[ ]   [ ] User can reply a thread
+[ ]   [ ] User can unlike a thread
+[ ]   [X] User can delete a thread
+[ ]   [ ] User can repost a thread
+[ ]   [ ] User can quote a thread
+[ ]   [ ] User can view a thread with replies
+[ ]   [ ] Infinite scroll in home
+
+[ ]   [X] User can create a profile
+[ ]   [X] User can update a profile
+[ ]   [X] User can follow another user
+[ ]   [ ] User can unfollow another user
+[ ]   [ ] User can view their profile
+[ ]   [ ] User can view their threads
+[ ]   [ ] User can view their followers
+[ ]   [ ] User can view who is following
+[ ]   [ ] User can view another user's profile
+[ ]   [ ] User can view another user's threads
+[ ]   [ ] User can view another user's followers
+[ ]   [ ] User can view another user's following
+
+[ ]   [ ] User can search another users
+
+
+
+This is a Threads clone done with Next.js 13 using server actions and following TDD, Drizzle ORM, Neon Postgres, Clerk, Tailwind CSS, Shadcn UI, Vitest, and more
 
 ## Getting Started
 

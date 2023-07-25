@@ -3,23 +3,47 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "ngrok": "ngrok http --domain=merry-mildly-hare.ngrok-free.app 3000",
+    "dev": "node --require reflect-metadata ./node_modules/.bin/next dev --port=3000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "test": "vitest",
+    "lint": "next lint",
+    "generate": "drizzle-kit generate:pg",
+    "push": "drizzle-kit push:pg"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.23.0",
+    "@clerk/themes": "^1.7.5",
+    "@neondatabase/serverless": "^0.5.6",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "dotenv": "^16.3.1",
+    "drizzle-orm": "^0.27.2",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
+    "lucide-react": "^0.263.0",
     "next": "13.4.10",
+    "ngrok": "^5.0.0-beta.2",
+    "pg": "^8.11.1",
     "postcss": "8.4.26",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
+    "reflect-metadata": "^0.1.13",
+    "svix": "^1.7.0",
     "tailwindcss": "3.3.3",
+    "tsyringe": "^4.8.0",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@joaogabrielf/eslint-config": "^3.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "drizzle-kit": "^0.19.10",
+    "jsdom": "^22.1.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "vitest": "^0.33.0"
   }
 }
