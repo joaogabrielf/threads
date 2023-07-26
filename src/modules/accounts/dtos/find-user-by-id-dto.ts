@@ -1,3 +1,3 @@
-export interface findById {
-  id: string
+export interface FindByIdDTO {
+  userId: string
 }

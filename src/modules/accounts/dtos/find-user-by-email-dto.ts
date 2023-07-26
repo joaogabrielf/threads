@@ -1,3 +1,3 @@
-export interface findByEmail {
+export interface FindByEmailDTO {
   email: string
 }

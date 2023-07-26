@@ -1,12 +1,16 @@
-import { findByEmail } from '../dtos/find-user-by-email-dto'
-import { findById } from '../dtos/find-user-by-id-dto'
-import { findByUsername } from '../dtos/find-user-by-username-dto'
-import { User, NewUser } from '../entities/User'
+import { CreateUserDTO } from '../dtos/create-user-dto'
+import { FindByEmailDTO } from '../dtos/find-user-by-email-dto'
+import { FindByIdDTO } from '../dtos/find-user-by-id-dto'
+import { FindByUsernameDTO } from '../dtos/find-user-by-username-dto'
+import { GetUserDTO } from '../dtos/get-user-dto'
+import { UpdateUserDTO } from '../dtos/update-user-dto'
+import { User } from '../entities/User'
 
 export interface UsersRepository {
-  create(data: NewUser): Promise<User>
-  update(data: NewUser): Promise<User>
-  findById({ id }: findById): Promise<User | undefined>
-  findByUsername({ username }: findByUsername): Promise<User | undefined>
-  findByEmail({ email }: findByEmail): Promise<User | undefined>
+  create(data: CreateUserDTO): Promise<User>
+  update(data: UpdateUserDTO): Promise<User>
+  findById({ userId }: FindByIdDTO): Promise<User | undefined>
+  findByUsername({ username }: FindByUsernameDTO): Promise<User | undefined>
+  findByEmail({ email }: FindByEmailDTO): Promise<User | undefined>
+  getUser({ userId }: GetUserDTO): Promise<User | undefined>
 }

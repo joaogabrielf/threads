@@ -32,31 +32,6 @@ export function NavBar() {
             </Link>
           </li>
         ))}
-        {/* <li>
-          <Link href="/home">
-            <Home size={36} />
-          </Link>
-        </li>
-        <li>
-          <Link href="/search">
-            <Search size={36} />
-          </Link>
-        </li>
-        <li>
-          <Link href="/post">
-            <PenSquare size={36} />
-          </Link>
-        </li>
-        <li>
-          <Link href="/notifications">
-            <Heart size={36} />
-          </Link>
-        </li>
-        <li>
-          <Link href="/profile">
-            <User2 size={36} />
-          </Link>
-        </li> */}
       </ul>
     </nav>
   )

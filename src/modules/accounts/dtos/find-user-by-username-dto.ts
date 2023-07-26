@@ -1,3 +1,3 @@
-export interface findByUsername {
+export interface FindByUsernameDTO {
   username: string
 }

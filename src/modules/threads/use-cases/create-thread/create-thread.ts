@@ -1,4 +1,3 @@
-// import { injectable, inject } from 'tsyringe'
 import { type ThreadsRepository } from '../../repositories/threads-repository'
 import { Thread } from '../../entities/thread'
 import { InvalidThreadBodyError } from '@/shared/errors/invalid-thread-body-error'
@@ -14,10 +13,8 @@ interface CreateThreadResponse {
   thread: Thread
 }
 
-// @injectable()
 export class CreateThreadUseCase {
   constructor(
-    // @inject('ThreadsRepository')
     private threadsRepository: ThreadsRepository,
     private usersRepository: UsersRepository,
   ) {}
@@ -29,7 +26,9 @@ export class CreateThreadUseCase {
       throw new InvalidThreadBodyError()
     }
 
-    const isUserExists = await this.usersRepository.findById({ id: authorId })
+    const isUserExists = await this.usersRepository.findById({
+      userId: authorId,
+    })
 
     if (!isUserExists) {
       throw new SomethingWentWrongError()

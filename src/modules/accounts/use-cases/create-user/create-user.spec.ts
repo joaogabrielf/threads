@@ -25,7 +25,11 @@ describe('Create User', () => {
   })
   it('should be able to create a new user', async () => {
     const { user } = await sut.execute({
-      user: newUser,
+      email: newUser.email,
+      firstName: newUser.firstName,
+      id: newUser.id,
+      imageUrl: newUser.imageUrl,
+      username: newUser.username,
     })
 
     expect(user.id).toEqual(newUser.id)
@@ -33,29 +37,53 @@ describe('Create User', () => {
   it('should not be able to create a new user without username', async () => {
     newUser.username = ''
 
-    await expect(() => sut.execute({ user: newUser })).rejects.toThrowError(
-      MissingRequiredFieldsError,
-    )
+    await expect(() =>
+      sut.execute({
+        email: newUser.email,
+        firstName: newUser.firstName,
+        id: newUser.id,
+        imageUrl: newUser.imageUrl,
+        username: newUser.username,
+      }),
+    ).rejects.toThrowError(MissingRequiredFieldsError)
   })
 
   it('should not be able to create a new user without email', async () => {
     newUser.email = ''
 
-    await expect(() => sut.execute({ user: newUser })).rejects.toThrowError(
-      MissingRequiredFieldsError,
-    )
+    await expect(() =>
+      sut.execute({
+        email: newUser.email,
+        firstName: newUser.firstName,
+        id: newUser.id,
+        imageUrl: newUser.imageUrl,
+        username: newUser.username,
+      }),
+    ).rejects.toThrowError(MissingRequiredFieldsError)
   })
 
   it('should not be able to create a new user without first name', async () => {
     newUser.firstName = ''
 
-    await expect(() => sut.execute({ user: newUser })).rejects.toThrowError(
-      MissingRequiredFieldsError,
-    )
+    await expect(() =>
+      sut.execute({
+        email: newUser.email,
+        firstName: newUser.firstName,
+        id: newUser.id,
+        imageUrl: newUser.imageUrl,
+        username: newUser.username,
+      }),
+    ).rejects.toThrowError(MissingRequiredFieldsError)
   })
 
   it('should not be able to create a new user with existing username', async () => {
-    await sut.execute({ user: newUser })
+    await sut.execute({
+      email: newUser.email,
+      firstName: newUser.firstName,
+      id: newUser.id,
+      imageUrl: newUser.imageUrl,
+      username: newUser.username,
+    })
 
     const newSecondUser = {
       id: 'user-id-second',
@@ -66,12 +94,24 @@ describe('Create User', () => {
     } as NewUser
 
     await expect(() =>
-      sut.execute({ user: newSecondUser }),
+      sut.execute({
+        email: newSecondUser.email,
+        firstName: newSecondUser.firstName,
+        id: newSecondUser.id,
+        imageUrl: newSecondUser.imageUrl,
+        username: newSecondUser.username,
+      }),
     ).rejects.toThrowError(UserAlreadyExistsError)
   })
 
   it('should not be able to create a new user with existing email', async () => {
-    await sut.execute({ user: newUser })
+    await sut.execute({
+      email: newUser.email,
+      firstName: newUser.firstName,
+      id: newUser.id,
+      imageUrl: newUser.imageUrl,
+      username: newUser.username,
+    })
 
     const newSecondUser = {
       id: 'user-id-second',
@@ -82,7 +122,13 @@ describe('Create User', () => {
     } as NewUser
 
     await expect(() =>
-      sut.execute({ user: newSecondUser }),
+      sut.execute({
+        email: newSecondUser.email,
+        firstName: newSecondUser.firstName,
+        id: newSecondUser.id,
+        imageUrl: newSecondUser.imageUrl,
+        username: newSecondUser.username,
+      }),
     ).rejects.toThrowError(UserAlreadyExistsError)
   })
 })

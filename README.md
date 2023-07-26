@@ -10,21 +10,12 @@ FRONT BACK
 [ ]   [X] User can create a new thread
 
 [ ]   [ ] User can view a thread card
-
-[ ]   [ ] User can like a thread
-
-[ ]   [ ] User can reply a thread
-
-[ ]   [ ] User can unlike a thread
-
+[ ]   [X] User can reply a thread*
+[ ]   [X] User can like a thread*
+[ ]   [X] User can unlike a thread*
 [ ]   [X] User can delete a thread
-
-[ ]   [ ] User can repost a thread
-
+[ ]   [X] User can repost a thread*
 [ ]   [ ] User can quote a thread
-
-[ ]   [ ] User can view a thread with replies
-
 [ ]   [ ] Infinite scroll in home
 
 [ ]   [X] User can create a profile
@@ -32,24 +23,15 @@ FRONT BACK
 [ ]   [X] User can update a profile
 
 [ ]   [X] User can follow another user
-
-[ ]   [ ] User can unfollow another user
-
-[ ]   [ ] User can view their profile
-
-[ ]   [ ] User can view their threads
-
-[ ]   [ ] User can view their followers
-
-[ ]   [ ] User can view who is following
-
-[ ]   [ ] User can view another user's profile
-
-[ ]   [ ] User can view another user's threads
-
-[ ]   [ ] User can view another user's followers
-
-[ ]   [ ] User can view another user's following
+[ ]   [X] User can unfollow another user
+[ ]   [X] User can view their profile*
+[ ]   [X] User can view their threads*
+[ ]   [X] User can view their followers*
+[ ]   [X] User can view who is following*
+[ ]   [X] User can view another user's profile*
+[ ]   [X] User can view another user's threads
+[ ]   [X] User can view another user's followers
+[ ]   [X] User can view another user's following
 
 [ ]   [ ] User can search another users
 

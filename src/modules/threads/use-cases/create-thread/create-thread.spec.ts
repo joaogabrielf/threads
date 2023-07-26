@@ -3,16 +3,15 @@ import { InMemoryThreadsRepository } from '../../repositories/in-memory/in-memor
 import { CreateThreadUseCase } from './create-thread'
 import { ThreadsRepository } from '../../repositories/threads-repository'
 import { InvalidThreadBodyError } from '@/shared/errors/invalid-thread-body-error'
-import { NewUser, User } from '@/modules/accounts/entities/User'
+import { User } from '@/modules/accounts/entities/User'
 import { InMemoryUsersRepository } from '@/modules/accounts/repositories/in-memory/in-memory-users-repository'
 import { UsersRepository } from '@/modules/accounts/repositories/users-repository'
-import { NewThread } from '@/shared/infra/drizzle/types/types'
 import { SomethingWentWrongError } from '@/shared/errors/something-went-wrong-error'
 
 let threadsRepository: ThreadsRepository
 let usersRepository: UsersRepository
 let sut: CreateThreadUseCase
-let newUser: NewUser
+let newUser: User
 let user: User
 
 describe('Create Thread', () => {
@@ -23,7 +22,7 @@ describe('Create Thread', () => {
       email: 'user-email',
       firstName: 'user-firstName',
       imageUrl: 'user-imageUrl',
-    } as NewUser
+    }
     usersRepository = new InMemoryUsersRepository()
     user = await usersRepository.create(newUser)
 
@@ -35,7 +34,7 @@ describe('Create Thread', () => {
     const newThread = {
       authorId: user.id,
       body: 'Thread content',
-    } as NewThread
+    }
     const { thread } = await sut.execute({
       authorId: newThread.authorId,
       body: newThread.body,
@@ -49,7 +48,7 @@ describe('Create Thread', () => {
     const newThread = {
       authorId: user.id,
       body: '',
-    } as NewThread
+    }
 
     await expect(() =>
       sut.execute({
@@ -62,8 +61,8 @@ describe('Create Thread', () => {
   it('should not be able to create a new thread with a non existing author', async () => {
     const newThread = {
       authorId: 'non-existent-id',
-      body: 'testsetsetse',
-    } as NewThread
+      body: 'Thread content',
+    }
 
     await expect(() =>
       sut.execute({

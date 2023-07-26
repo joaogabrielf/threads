@@ -31,10 +31,10 @@ export class FollowUserUseCase {
     }
 
     const isFollowingUserExistPromise = this.usersRepository.findById({
-      id: followingUserId,
+      userId: followingUserId,
     })
     const isFollowedUserExistPromise = this.usersRepository.findById({
-      id: followedUserId,
+      userId: followedUserId,
     })
 
     const [isFollowingUserExist, isFollowedUserExist] = await Promise.all([

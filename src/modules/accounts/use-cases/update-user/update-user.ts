@@ -24,7 +24,7 @@ export class UpdateUserUseCase {
 
     const userId = id as string
 
-    const isUserExists = await this.usersRepository.findById({ id: userId })
+    const isUserExists = await this.usersRepository.findById({ userId })
 
     if (!isUserExists) {
       throw new SomethingWentWrongError()

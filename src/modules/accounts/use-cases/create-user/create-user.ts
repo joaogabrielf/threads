@@ -1,26 +1,30 @@
 import { MissingRequiredFieldsError } from '@/shared/errors/missing-required-fields-error'
-import { NewUser, User } from '../../entities/User'
+import { User } from '../../entities/User'
 import { type UsersRepository } from '../../repositories/users-repository'
 import { UserAlreadyExistsError } from '@/shared/errors/user-already-exists-error'
 
 interface CreateUserRequest {
-  user: NewUser
+  id: string
+  username: string
+  email: string
+  imageUrl: string
+  firstName: string
 }
 
 interface CreateUserResponse {
   user: User
 }
 
-// @injectable()
 export class CreateUserUseCase {
-  constructor(
-    // @inject('UsersRepository')
-    private usersRepository: UsersRepository,
-  ) {}
+  constructor(private usersRepository: UsersRepository) {}
 
-  async execute({ user }: CreateUserRequest): Promise<CreateUserResponse> {
-    const { bio, email, firstName, id, imageUrl, links, username } = user
-
+  async execute({
+    email,
+    firstName,
+    id,
+    imageUrl,
+    username,
+  }: CreateUserRequest): Promise<CreateUserResponse> {
     if (!username || !email || !firstName) {
       throw new MissingRequiredFieldsError()
     }
@@ -40,12 +44,10 @@ export class CreateUserUseCase {
     }
 
     const newUser = await this.usersRepository.create({
-      bio,
       email,
       firstName,
       id,
       imageUrl,
-      links,
       username,
     })
     return { user: newUser }

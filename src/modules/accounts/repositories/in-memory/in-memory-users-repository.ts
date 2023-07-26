@@ -1,21 +1,26 @@
-import { randomUUID } from 'crypto'
-import { findById } from '../../dtos/find-user-by-id-dto'
-import { User, NewUser } from '../../entities/User'
+import { User } from '../../entities/User'
 import { UsersRepository } from '../users-repository'
-import { findByEmail } from '../../dtos/find-user-by-email-dto'
-import { findByUsername } from '../../dtos/find-user-by-username-dto'
+import { FindByEmailDTO } from '../../dtos/find-user-by-email-dto'
+import { FindByIdDTO } from '../../dtos/find-user-by-id-dto'
+import { FindByUsernameDTO } from '../../dtos/find-user-by-username-dto'
+import { GetUserDTO } from '../../dtos/get-user-dto'
+import { CreateUserDTO } from '../../dtos/create-user-dto'
+import { UpdateUserDTO } from '../../dtos/update-user-dto'
 
 export class InMemoryUsersRepository implements UsersRepository {
   private users: User[] = []
 
-  async create(data: NewUser): Promise<User> {
+  async create(data: CreateUserDTO): Promise<User> {
     const { email, firstName, imageUrl, username, bio, id, links } = data
     const user = {
-      id: id ?? randomUUID(),
+      id,
       username,
       email,
       imageUrl,
       firstName,
+      following: [],
+      followers: [],
+      threads: [],
       bio,
       links,
       updatedAt: new Date(),
@@ -27,7 +32,7 @@ export class InMemoryUsersRepository implements UsersRepository {
     return user
   }
 
-  async update(data: NewUser): Promise<User> {
+  async update(data: UpdateUserDTO): Promise<User> {
     const { id, email, firstName, imageUrl, username, bio, links } = data
     const user = this.users.find((user) => user.id === id)
     if (!user) {
@@ -44,17 +49,21 @@ export class InMemoryUsersRepository implements UsersRepository {
     return user
   }
 
-  async findById({ id }: findById): Promise<User | undefined> {
-    return this.users.find((user) => user.id === id)
+  async findById({ userId }: FindByIdDTO): Promise<User | undefined> {
+    return this.users.find((user) => user.id === userId)
   }
 
   async findByUsername({
     username,
-  }: findByUsername): Promise<User | undefined> {
+  }: FindByUsernameDTO): Promise<User | undefined> {
     return this.users.find((user) => user.username === username)
   }
 
-  async findByEmail({ email }: findByEmail): Promise<User | undefined> {
+  async findByEmail({ email }: FindByEmailDTO): Promise<User | undefined> {
     return this.users.find((user) => user.email === email)
+  }
+
+  async getUser({ userId }: GetUserDTO): Promise<User | undefined> {
+    return this.users.find((user) => user.id === userId)
   }
 }
